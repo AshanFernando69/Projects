@@ -2,6 +2,7 @@
 
 import random
 import time
+import sys
 
 # -------------------#
 
@@ -73,7 +74,7 @@ Dealer_Total = sum(Dealer_Cards)
 print("Your cards are {}".format(Player_Cards))
 gap()
 time.sleep(2)
-print("Your total is... {}".format(sum(Player_Cards)))
+print("Your total is... {}".format(Player_Total))
 gap()
 time.sleep(1)
 print("The dealer's cards are [X,{}]".format(Dealer_Cards[1]))
@@ -84,6 +85,8 @@ gap()
 # Hit or Stand?
 
 for i in range(20):
+    time.sleep(1)
+    gap()
     FirstRoundChoice = input("Would you like to 'Hit' or 'Stand'?")
     gap()
     time.sleep(1)
@@ -92,8 +95,13 @@ for i in range(20):
         print("Your cards are {}".format(Player_Cards))
         gap()
         time.sleep(1)
-        print("This brings your total to... {}".format(sum(Player_Cards)))
         Player_Total = sum(Player_Cards)
+        print("This brings your total to... {}".format(Player_Total))
+        if Player_Total > 21:
+            gap()
+            print("You have bust.")
+            gap()
+            sys.exit('Your count has exceeded 21.')
 
     if FirstRoundChoice not in Hit_Choices:
         print("You have chosen to stand")
@@ -113,46 +121,63 @@ time.sleep(1)
 Dealer_Total = sum(Dealer_Cards)
 if (Dealer_Total) <= 16:
     count = 0
-    while count == 0:
-        time.sleep(1)
-        gap()
-        print("The Dealer is drawing...")
-        getcard_Dealer()
-        gap()
-        time.sleep(1)
-        print("The Dealer's cards are {}".format(Dealer_Cards))
-        gap()
-        time.sleep(1)
-        print("The dealer's total is {}".format(sum(Dealer_Cards)))
-        if (Dealer_Total) >= 17 and (Dealer_Total) < 22:
-            time.sleep(1)
-            gap()
-            print("Dealer has chosen to stand")
-            time.sleep(1)
-            gap()
-            print("Comparing totals...")
-            time.sleep(1)
-            gap()
-            print("Your total is... {}".format(sum(Player_Cards)))
-            time.sleep(1)
-            gap()
-            print("The Dealer's total is...{}".format(sum(Dealer_Cards)))
-            break
-        if (Dealer_Total) > (Player_Total):
-            time.sleep(1)
-            gap()
-            print("The Dealer has won.")
-            break
-        elif (Dealer_Total) < (Player_Total):
-            time.sleep(1)
-            gap()
-            print("You have won.")
-            break
-        elif (Dealer_Total) == (Player_Total):
-            time.sleep(1)
-            gap()
-            print("Both counts are the same, it is a draw.")
-            break
+
+while count == 0:
+    time.sleep(1)
+    gap()
+    print("The Dealer is drawing...")
+    getcard_Dealer()
+    gap()
+    time.sleep(1)
+    print("The Dealer's cards are {}".format(Dealer_Cards))
+    gap()
+    time.sleep(1)
+    print("The dealer's total is {}".format(sum(Dealer_Cards)))
+    Dealer_Total = sum(Dealer_Cards)
+    if (Dealer_Total) >= 17:
+        count = 1
+else:
+    time.sleep(1)
+
+if (Dealer_Total) > 21:
+    time.sleep(1)
+    gap()
+    print("Dealer has bust.")
+    time.sleep(1)
+    gap
+    print("You have won")
+    sys.exit('GAME OVER')
+
+if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
+    time.sleep(1)
+    gap()
+    print("Dealer has chosen to stand")
+    time.sleep(1)
+    gap()
+    print("Comparing totals...")
+    time.sleep(1)
+    gap()
+    print("Your total is... {}".format(sum(Player_Cards)))
+    time.sleep(1)
+    gap()
+    print("The Dealer's total is...{}".format(sum(Dealer_Cards)))
+    count = 1
+
+if (Dealer_Total) > (Player_Total):
+    time.sleep(1)
+    gap()
+    print("The Dealer has won.")
+    sys.exit('GAME OVER')
+if (Dealer_Total) < (Player_Total):
+    time.sleep(1)
+    gap()
+    print("You have won.")
+    sys.exit('CONGRATS')
+if (Dealer_Total) == (Player_Total):
+    time.sleep(1)
+    gap()
+    print("Both counts are the same, it is a draw.")
+    sys.exit('GAME OVER')
 
 # -------------------
 
@@ -174,7 +199,4 @@ if (Dealer_Total) <= 16:
 
 # Attempt to get to 21 or under, bust if it is over
 
-# Winner gets wagered bets
-
-
-
+# Winner wins
