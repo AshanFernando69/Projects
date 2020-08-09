@@ -27,3 +27,11 @@ Cards = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7,
 #Choices for the 'Hit' option
 
 Hit_Choices =  ["Hit","H","h","hit","iht", "thi", "ith", "tih", "hti"]
+
+#-----------------------#
+
+#Player & Dealer Deck
+
+Player_Cards = []
+
+Dealer_Cards = []
