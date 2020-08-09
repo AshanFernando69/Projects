@@ -42,3 +42,15 @@ Dealer_Cards = []
 
 def gap():
     print(" ")
+
+def getcard_Player():
+    player_card = random.choice(Cards)
+    player_Cards.insert(0, Player_card)
+    Cards.remove(player_card)
+    print(Player_Cards)
+
+def getcard_Dealer():
+    dealer_card = random.choice(Cards)
+    Dealer_Cards.insert(0, dealer_card)
+    Cards.remove(dealer_card)
+    print(Dealer_Cards)
