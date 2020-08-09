@@ -35,3 +35,10 @@ Hit_Choices =  ["Hit","H","h","hit","iht", "thi", "ith", "tih", "hti"]
 Player_Cards = []
 
 Dealer_Cards = []
+
+#-----------------------#
+
+#Functions
+
+def gap():
+    print(" ")
