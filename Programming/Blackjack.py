@@ -83,3 +83,32 @@ time.sleep(1)
 print("The dealer's cards are [X,{}]".format(Dealer_Cards[1]))
 gap()
 
+# -----------------------#
+
+#Hit or Stand?
+
+for i in range(100):
+    time.sleep(1)
+    gap()
+    FirstRoundChoice = input("Would you like to 'Hit' or 'Stand'?")
+    gap()
+    time.sleep(1)
+    if FirstRoundChoice in Hit_Choices:
+        getcard_Player()
+        print("Your cards are {}".format(Player_Cards))
+        gap()
+        time.sleep(1)
+        Player_Total = sum(Player_Cards)
+        print("This brings your total to... {}".format(Player_Total))
+        if Player_Total > 21:
+            gap()
+            print("You have bust.")
+            gap()
+            sys.exit('Your count has exceeded 21.')
+
+    if FirstRoundChoice not in Hit_Choices:
+        print("You have chosen to stand")
+        gap()
+        time.sleep(1)
+        gap()
+        break
