@@ -68,3 +68,18 @@ for i in range(2):
     getcard_Player()
 
 # -----------------------#
+
+#First Hand
+
+Player_Total = sum(Player_Cards)
+Dealer_Total = sum(Dealer_Cards)
+
+print("Your cards are {}".format(Player_Cards))
+gap()
+time.sleep(2)
+print("Your total is... {}".format(Player_Total))
+gap()
+time.sleep(1)
+print("The dealer's cards are [X,{}]".format(Dealer_Cards[1]))
+gap()
+
