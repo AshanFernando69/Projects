@@ -112,3 +112,25 @@ for i in range(100):
         time.sleep(1)
         gap()
         break
+
+print("It is now the dealer's turn.")
+gap()
+time.sleep(1)
+Dealer_Total = sum(Dealer_Cards)
+if (Dealer_Total) <= 16:
+    count = 0
+
+while count == 0:
+    time.sleep(1)
+    gap()
+    print("The dealer is drawing...")
+    getcard_Dealer()
+    gap()
+    time.sleep(1)
+    print("The dealer's cards are {}".format(Dealer_Cards))
+    gap()
+    time.sleep(1)
+    print("The dealer's total is {}".format(sum(Dealer_Cards)))
+    Dealer_Total = sum(Dealer_Cards)
+    if (Dealer_Total) >= 17:
+        count = 1
