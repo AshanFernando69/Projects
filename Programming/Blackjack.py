@@ -158,3 +158,18 @@ if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
     time.sleep(1)
     gap()
     print("The dealer's total is...{}".format(sum(Dealer_Cards)))
+    if (Dealer_Total) > (Player_Total):
+        time.sleep(1)
+        gap()
+        print("The Dealer has won.")
+        sys.exit('GAME OVER')
+    if (Dealer_Total) < (Player_Total):
+        time.sleep(1)
+        gap()
+        print("You have won.")
+        sys.exit('CONGRATS')
+    if (Dealer_Total) == (Player_Total):
+        time.sleep(1)
+        gap()
+        print("Both counts are the same, it is a draw.")
+        sys.exit('GAME OVER')
