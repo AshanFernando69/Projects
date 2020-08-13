@@ -134,3 +134,13 @@ while count == 0:
     Dealer_Total = sum(Dealer_Cards)
     if (Dealer_Total) >= 17:
         count = 1
+
+if (Dealer_Total)>21:
+    time.sleep(1)
+    gap()
+    print("Dealer has bust.")
+    time.sleep(1)
+    gap()
+    print("You have won")
+    time.sleep(2)
+    sys.exit('CONGRATS')
