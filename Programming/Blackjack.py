@@ -144,3 +144,17 @@ if (Dealer_Total)>21:
     print("You have won")
     time.sleep(2)
     sys.exit('CONGRATS')
+
+if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
+    time.sleep(1)
+    gap()
+    print("Dealer has chosen to stand")
+    time.sleep(1)
+    gap()
+    print("Comparing totals...")
+    time.sleep(1)
+    gap()
+    print("Your total is... {}".format(sum(Player_Cards)))
+    time.sleep(1)
+    gap()
+    print("The dealer's total is...{}".format(sum(Dealer_Cards)))
