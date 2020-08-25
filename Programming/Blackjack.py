@@ -7,6 +7,15 @@ def main():
 
     # -----------------------#
 
+    # Win/Loss Count Variables
+
+    win_var = 0
+
+    loss_var = 0
+
+    draw_var = 0
+    # -----------------------#
+
     # Card Values
 
     Jack = 10
@@ -71,9 +80,14 @@ def main():
         else:
             sys.exit("Thanks for playing!")
 
+    def gameRecord():
+        time.sleep(2)
+        gap()
+        print("Game record: {} Wins/ {} Draw/ {} losses").format(win_var, draw_var, loss_var)
+
     # -----------------------#
 
-    #Starting Hand
+    # Starting Hand
 
     for i in range(2):
         getcard_Dealer()
@@ -81,7 +95,7 @@ def main():
 
     # -----------------------#
 
-    #First Hand
+    # First Hand
 
     Player_Total = sum(Player_Cards)
     Dealer_Total = sum(Dealer_Cards)
@@ -154,7 +168,8 @@ def main():
         time.sleep(1)
         gap()
         print("You have won")
-        time.sleep(2)
+        win_var = win_var + 1
+        gameRecord()
         playAgain()
 
     if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
@@ -177,6 +192,8 @@ def main():
             gap()
             time.sleep(1)
             print("GAME OVER")
+            loss_var = loss_var + 1
+            gameRecord()
             playAgain()
         if (Dealer_Total) < (Player_Total):
             time.sleep(1)
@@ -185,6 +202,8 @@ def main():
             gap()
             time.sleep(1)
             print("Congrats.")
+            win_var = win_var + 1
+            gameRecord()
             playAgain()
         if (Dealer_Total) == (Player_Total):
             time.sleep(1)
@@ -193,6 +212,8 @@ def main():
             gap()
             time.sleep(1)
             print("Better luck next time.")
+            draw_var = draw_var + 1
+            gameRecord()
             playAgain()
 
 main()
