@@ -60,6 +60,17 @@ def main():
         Cards.remove(dealer_card)
         print(Dealer_Cards)
 
+    def playAgain():
+        import time
+        replay_choice = ["Yes", "YES", "y", "Y","yes"]
+        replay_ans = input("Would you like to play again?")
+        if replay_ans in replay_choice:
+            print("Restarting Program...")
+            time.sleep(3)
+            main()
+        else:
+            sys.exit("Thanks for playing!")
+
     # -----------------------#
 
     #Starting Hand
@@ -144,7 +155,7 @@ def main():
         gap()
         print("You have won")
         time.sleep(2)
-        sys.exit('CONGRATS')
+        playAgain()
 
     if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
         time.sleep(1)
@@ -166,6 +177,7 @@ def main():
             gap()
             time.sleep(1)
             print("GAME OVER")
+            playAgain()
         if (Dealer_Total) < (Player_Total):
             time.sleep(1)
             gap()
@@ -173,6 +185,7 @@ def main():
             gap()
             time.sleep(1)
             print("Congrats.")
+            playAgain()
         if (Dealer_Total) == (Player_Total):
             time.sleep(1)
             gap()
@@ -180,20 +193,10 @@ def main():
             gap()
             time.sleep(1)
             print("Better luck next time.")
-
-def playAgain():
-    import time
-    replay_choice = ["Yes","YES","y","Y"]
-    replay_ans = input("Would you like to play again?")
-    if replay_ans in replay_choice:
-        print("Restarting Program...")
-        time.sleep(3)
-        main()
-    else:
-        sys.exit("Thanks for playing!")
+            playAgain()
 
 main()
 
-playAgain()
+
 
 
