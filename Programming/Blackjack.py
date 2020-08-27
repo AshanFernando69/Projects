@@ -30,8 +30,7 @@ def main():
 
     # Standard 52-card Deck
 
-    Cards = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, Jack, Jack,
-             Jack, Jack, Queen, Queen, Queen, Queen, King, King, King, King, Ace, Ace, Ace, Ace]
+    Cards = ['2 \u2660', ' 2 \u2661', ' 2 \u2663', ' 2 \u2664','3 \u2660', ' 3 \u2661', ' 3 \u2663', ' 3 \u2664' '4 \u2660', ' 4 \u2661', ' 4 \u2663', ' 4 \u2664' ' 5 \u2660', ' 5 \u2661', ' 5 \u2663', ' 5 \u2664', ' 6 \u2660', ' 6 \u2661', ' 6 \u2663', ' 6 \u2664', '7 \u2660', ' 7 \u2661', ' 7 \u2663', ' 7 \u2664', ' 8 \u2660', ' 8 \u2661', ' 8 \u2663', ' 8 \u2664', '9 \u2660', ' 9 \u2661', ' 9 \u2663', ' 9 \u2664', 'Jack \u2660', ' Jack \u2661', ' Jack \u2663', ' Jack \u2664', 'Queen \u2660', ' Queen \u2661', ' Queen \u2663', ' Queen \u2664', ' King \u2660', ' King \u2661', ' King \u2663', ' King \u2664', ' Ace \u2660', ' Ace \u2661', ' Ace \u2663', ' Ace \u2664']
 
     # -----------------------#
 
@@ -80,7 +79,7 @@ def main():
         else:
             sys.exit("Thanks for playing!")
 
-    def gameRecord():
+    def gamerecord():
         time.sleep(2)
         gap()
         print("Game record: {} Wins/ {} Draw/ {} losses").format(win_var, draw_var, loss_var)
@@ -169,7 +168,7 @@ def main():
         gap()
         print("You have won")
         win_var = win_var + 1
-        gameRecord()
+        gamerecord()
         playAgain()
 
     if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
@@ -193,7 +192,7 @@ def main():
             time.sleep(1)
             print("GAME OVER")
             loss_var = loss_var + 1
-            gameRecord()
+            gamerecord()
             playAgain()
         if (Dealer_Total) < (Player_Total):
             time.sleep(1)
@@ -203,7 +202,7 @@ def main():
             time.sleep(1)
             print("Congrats.")
             win_var = win_var + 1
-            gameRecord()
+            gamerecord()
             playAgain()
         if (Dealer_Total) == (Player_Total):
             time.sleep(1)
@@ -213,7 +212,7 @@ def main():
             time.sleep(1)
             print("Better luck next time.")
             draw_var = draw_var + 1
-            gameRecord()
+            gamerecord()
             playAgain()
 
 main()
