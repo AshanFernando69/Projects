@@ -4,6 +4,9 @@ def main():
     import random
     import time
     import sys
+    import pickle
+    import os
+    os.system("clr")
 
     # -----------------------#
 
@@ -83,7 +86,7 @@ def main():
     def gameRecord():
         time.sleep(2)
         gap()
-        print("Game record: {} Wins/ {} Draw/ {} losses").format(win_var, draw_var, loss_var)
+
 
     # -----------------------#
 
@@ -168,8 +171,9 @@ def main():
         time.sleep(1)
         gap()
         print("You have won")
+        gap()
         win_var = win_var + 1
-        gameRecord()
+        print("Game record: {} Wins/ {} Draw/ {} losses".format(win_var, draw_var, loss_var))
         playAgain()
 
     if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
@@ -192,8 +196,9 @@ def main():
             gap()
             time.sleep(1)
             print("GAME OVER")
+            gap()
             loss_var = loss_var + 1
-            gameRecord()
+            print("Game record: {} Wins/ {} Draw/ {} losses".format(win_var, draw_var, loss_var))
             playAgain()
         if (Dealer_Total) < (Player_Total):
             time.sleep(1)
@@ -212,8 +217,9 @@ def main():
             gap()
             time.sleep(1)
             print("Better luck next time.")
+            gap()
             draw_var = draw_var + 1
-            gameRecord()
+            print("Game record: {} Wins/ {} Draw/ {} losses".format(win_var, draw_var, loss_var))s
             playAgain()
 
 main()
