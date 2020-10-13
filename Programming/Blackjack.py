@@ -3,12 +3,14 @@ import sys
 
 def main():
     # Imports
+
     import random
     import time
     import sys
     # -----------------------#
 
     # Card Values
+
     Jack = 10
     King = 10
     Queen = 10
@@ -16,20 +18,24 @@ def main():
     # -----------------------#
 
     # Standard 52-card Deck
+
     Cards = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, Jack, Jack,
              Jack, Jack, Queen, Queen, Queen, Queen, King, King, King, King, Ace, Ace, Ace, Ace]
     # -----------------------#
 
     # Choices for the 'Hit' option
+
     Hit_Choices = ["Hit", "H", "h", "hit", "iht", "thi", "ith", "tih", "hti"]
     # -----------------------#
 
     # Player & Dealer Deck
+
     Player_Cards = []
     Dealer_Cards = []
     # -----------------------#
 
     # Functions
+
     def gap():
         print(" ")
     def getcard_Player():
@@ -57,6 +63,7 @@ def main():
     # -----------------------#
 
     # Starting Hand
+
     for i in range(2):
         getcard_Dealer()
         getcard_Player()
@@ -71,7 +78,7 @@ def main():
     time.sleep(2)
     print("Your total is... {}".format(Player_Total))
     gap()
-    time.sleep(1)
+    time.sleep(2)
     print("The dealer's cards are [X,{}]".format(Dealer_Cards[1]))
     gap()
     # -----------------------#
@@ -80,7 +87,6 @@ def main():
 
     for i in range(100):
         time.sleep(1)
-        gap()
         FirstRoundChoice = input("Would you like to 'Hit' or 'Stand'?")
         gap()
         time.sleep(1)
@@ -91,11 +97,16 @@ def main():
             time.sleep(1)
             Player_Total = sum(Player_Cards)
             print("This brings your total to... {}".format(Player_Total))
+            gap()
             if Player_Total > 21:
+                time.sleep(2)
                 gap()
                 print("You have bust.")
                 gap()
-                sys.exit('Your count has exceeded 21.')
+                time.sleep(1.5)
+                print("GAME OVER")
+                gap()
+                playAgain()
         if FirstRoundChoice not in Hit_Choices:
             print("You have chosen to stand")
             gap()
@@ -113,17 +124,18 @@ def main():
     Dealer_Total = sum(Dealer_Cards)
     if (Dealer_Total) <= 16:
         count = 0
+
     while count == 0:
         time.sleep(1)
-        gap()
         print("The dealer is drawing...")
         getcard_Dealer()
         gap()
-        time.sleep(1)
+        time.sleep(2)
         print("The dealer's cards are {}".format(Dealer_Cards))
         gap()
-        time.sleep(1)
+        time.sleep(2)
         print("The dealer's total is {}".format(sum(Dealer_Cards)))
+        gap()
         Dealer_Total = sum(Dealer_Cards)
         if (Dealer_Total) >= 17:
             count = 1
@@ -135,7 +147,7 @@ def main():
         gap()
         print("You have won")
         time.sleep(2)
-        sys.exit('CONGRATS')
+        print("CONGRATS")
         playAgain()
 
     if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
@@ -158,6 +170,7 @@ def main():
             gap()
             time.sleep(1)
             print("GAME OVER")
+            gap()
             playAgain()
         if (Dealer_Total) < (Player_Total):
             time.sleep(1)
@@ -166,6 +179,7 @@ def main():
             gap()
             time.sleep(1)
             print("Congrats.")
+            gap()
             playAgain()
         if (Dealer_Total) == (Player_Total):
             time.sleep(1)
@@ -174,6 +188,8 @@ def main():
             gap()
             time.sleep(1)
             print("Better luck next time.")
+            gap()
+            playAgain()
 
 # -----------------------#
 
@@ -185,11 +201,13 @@ def playAgain():
     print(" ")
     replay_ans = input("Would you like to play again?")
     if replay_ans in replay_choice:
+        print(" ")
         print("Restarting Program...")
         time.sleep(3)
         main()
     else:
         time.sleep(3)
+        print(" ")
         sys.exit("Thanks for playing!")
 
 main()
