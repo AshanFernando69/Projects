@@ -11,21 +11,23 @@ def main():
 
     # Card Values
 
-    Jack = 10
-    King = 10
-    Queen = 10
-    Ace = 1
+    jack = 10
+    king = 10
+    queen = 10
+    ace = 1
     # -----------------------#
 
     # Standard 52-card Deck
 
-    Cards = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, Jack, Jack,
-             Jack, Jack, Queen, Queen, Queen, Queen, King, King, King, King, Ace, Ace, Ace, Ace]
+    cards = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, jack, jack,
+             jack, jack, queen, queen, queen, queen, king, king, king, king, ace, ace, ace, ace]
     # -----------------------#
 
     # Choices for the 'Hit' option
 
-    Hit_Choices = ["Hit", "H", "h", "hit", "iht", "thi", "ith", "tih", "hti"]
+    Hit_Choices = ["Hit", "H", "h", "hit", "iht", "thi", "ith", "tih", "hti", "HIT"]
+
+    Stand_Choices = ["Stand", "S", "s", "stand", "dnats","STAND"]
     # -----------------------#
 
     # Player & Dealer Deck
@@ -39,14 +41,14 @@ def main():
     def gap():
         print(" ")
     def getcard_Player():
-        player_card = random.choice(Cards)
+        player_card = random.choice(cards)
         Player_Cards.insert(0, player_card)
-        Cards.remove(player_card)
+        cards.remove(player_card)
         print(Player_Cards)
     def getcard_Dealer():
-        dealer_card = random.choice(Cards)
+        dealer_card = random.choice(cards)
         Dealer_Cards.insert(0, dealer_card)
-        Cards.remove(dealer_card)
+        cards.remove(dealer_card)
         print(Dealer_Cards)
 
     def playAgain():
@@ -107,12 +109,15 @@ def main():
                 print("GAME OVER")
                 gap()
                 playAgain()
-        if FirstRoundChoice not in Hit_Choices:
+        elif FirstRoundChoice in Stand_Choices:
             print("You have chosen to stand")
             gap()
             time.sleep(1)
             gap()
             break
+        else:
+            print("That is not an option.")
+            gap()
 
     # -----------------------#
 
@@ -137,7 +142,7 @@ def main():
         print("The dealer's total is {}".format(sum(Dealer_Cards)))
         gap()
         Dealer_Total = sum(Dealer_Cards)
-        if (Dealer_Total) >= 17:
+        if Dealer_Total >= 17:
             count = 1
     if (Dealer_Total)>21:
         time.sleep(1)
@@ -147,11 +152,12 @@ def main():
         gap()
         print("You have won")
         time.sleep(2)
+        gap()
         print("CONGRATS")
         time.sleep(2)
         playAgain()
 
-    if (Dealer_Total) >= 17 and (Dealer_Total) <= 21:
+    if 17 <= Dealer_Total <= 21:
         time.sleep(1)
         gap()
         print("Dealer has chosen to stand")
@@ -201,7 +207,7 @@ def main():
 
 def playAgain():
     import time
-    replay_choice = ["Yes","YES","y","Y"]
+    replay_choice = ["Yes", "YES", "y", "Y"]
     print(" ")
     replay_ans = input("Would you like to play again?")
     if replay_ans in replay_choice:
