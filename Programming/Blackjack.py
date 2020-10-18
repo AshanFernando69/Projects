@@ -55,12 +55,17 @@ gap()
 if rules_question in rule_choices:
     rules()
 
+else:
+    print("Then lets get started!")
+    time.sleep(3)
+
 
 # -----------------------#
 
 def main():
     # Imports
 
+    global count
     import random
     import time
     import sys
@@ -134,7 +139,6 @@ def main():
     # First Hand
 
     Player_Total = sum(Player_Cards)
-    Dealer_Total = sum(Dealer_Cards)
     print("Your cards are {}".format(Player_Cards))
     gap()
     time.sleep(2)
@@ -187,7 +191,7 @@ def main():
     gap()
     time.sleep(1)
     Dealer_Total = sum(Dealer_Cards)
-    if (Dealer_Total) <= 16:
+    if Dealer_Total <= 16:
         count = 0
 
     while count == 0:
@@ -204,7 +208,7 @@ def main():
         Dealer_Total = sum(Dealer_Cards)
         if Dealer_Total >= 17:
             count = 1
-    if (Dealer_Total) > 21:
+    if Dealer_Total > 21:
         time.sleep(1)
         gap()
         print("Dealer has bust.")
@@ -230,7 +234,7 @@ def main():
         time.sleep(2)
         gap()
         print("The dealer's total is...{}".format(sum(Dealer_Cards)))
-        if (Dealer_Total) > (Player_Total):
+        if Dealer_Total > Player_Total:
             time.sleep(1)
             gap()
             print("The Dealer has won.")
@@ -240,7 +244,7 @@ def main():
             gap()
             time.sleep(2)
             playAgain()
-        if (Dealer_Total) < (Player_Total):
+        if Dealer_Total < Player_Total:
             time.sleep(1)
             gap()
             print("You have won.")
@@ -250,7 +254,7 @@ def main():
             gap()
             time.sleep(2)
             playAgain()
-        if (Dealer_Total) == (Player_Total):
+        if Dealer_Total == Player_Total:
             time.sleep(1)
             gap()
             print("Both counts are the same, it is a draw.")
