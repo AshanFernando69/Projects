@@ -1,5 +1,62 @@
 import sys
+import time
 
+
+def gap():
+    print(" ")
+
+
+# Rules function
+
+def rules():
+    print("You and the dealer will be dealt two cards.")
+    time.sleep(3)
+    gap()
+    print("One of the dealers cards will be hidden until your turn has ended.")
+    time.sleep(3)
+    gap()
+    print("Your goal is to get your count to 21 or close to it, without going over.")
+    time.sleep(3)
+    gap()
+    print("You can 'Hit' to draw a card and 'Stand' to end your turn.")
+    time.sleep(3)
+    gap()
+    print("If you go over 21 you will 'Bust' and the dealer will win.")
+    time.sleep(3)
+    gap()
+    print("You can 'Stand' when you are comfortable with your count.")
+    time.sleep(3)
+    gap()
+    print("If the dealer's count is equal to or less than 16 he must draw a card")
+    time.sleep(3)
+    gap()
+    print("If both the player and the dealer have not 'Bust' at the end of their turns")
+    time.sleep(3)
+    gap()
+    print("The program will compare both counts and decide the winner.")
+    time.sleep(3)
+    gap()
+    print("Time to play!")
+    time.sleep(5)
+
+
+# -----------------------#
+
+# Rules section
+
+rule_choices = ["Y", "y", "YES", "yes", "Yes"]
+
+print("Welcome to my Blackjack simulation!")
+gap()
+time.sleep(3)
+rules_question = input("Would you like to read the rules?")
+gap()
+
+if rules_question in rule_choices:
+    rules()
+
+
+# -----------------------#
 
 def main():
     # Imports
@@ -27,24 +84,27 @@ def main():
 
     Hit_Choices = ["Hit", "H", "h", "hit", "iht", "thi", "ith", "tih", "hti", "HIT"]
 
-    Stand_Choices = ["Stand", "S", "s", "stand", "dnats","STAND"]
+    Stand_Choices = ["Stand", "S", "s", "stand", "dnats", "STAND"]
     # -----------------------#
 
     # Player & Dealer Deck
 
     Player_Cards = []
     Dealer_Cards = []
+
     # -----------------------#
 
     # Functions
 
     def gap():
         print(" ")
+
     def getcard_Player():
         player_card = random.choice(cards)
         Player_Cards.insert(0, player_card)
         cards.remove(player_card)
         print(Player_Cards)
+
     def getcard_Dealer():
         dealer_card = random.choice(cards)
         Dealer_Cards.insert(0, dealer_card)
@@ -53,7 +113,7 @@ def main():
 
     def playAgain():
         import time
-        replay_choice = ["Yes", "YES", "y", "Y","yes"]
+        replay_choice = ["Yes", "YES", "y", "Y", "yes"]
         replay_ans = input("Would you like to play again?")
         if replay_ans in replay_choice:
             print("Restarting Program...")
@@ -144,7 +204,7 @@ def main():
         Dealer_Total = sum(Dealer_Cards)
         if Dealer_Total >= 17:
             count = 1
-    if (Dealer_Total)>21:
+    if (Dealer_Total) > 21:
         time.sleep(1)
         gap()
         print("Dealer has bust.")
@@ -201,6 +261,7 @@ def main():
             time.sleep(2)
             playAgain()
 
+
 # -----------------------#
 
 # Replay Function
@@ -219,6 +280,7 @@ def playAgain():
         time.sleep(3)
         print(" ")
         sys.exit("Thanks for playing!")
+
 
 main()
 
