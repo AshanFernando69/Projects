@@ -66,7 +66,6 @@ else:
 def main():
     # Imports
 
-    global count
     import random
     import time
     import sys
@@ -193,7 +192,9 @@ def main():
     time.sleep(1)
     Dealer_Total = sum(Dealer_Cards)
     if Dealer_Total <= 16:
-        count = 0
+        pass
+
+    count = 0
 
     while count == 0:
         time.sleep(2)
@@ -219,6 +220,7 @@ def main():
         time.sleep(2)
         gap()
         print("CONGRATS")
+        gap()
         time.sleep(2)
         playAgain()
 
