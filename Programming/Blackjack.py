@@ -87,9 +87,9 @@ def main():
 
     # Choices for the 'Hit' option
 
-    Hit_Choices = ["Hit", "H", "h", "hit", "iht", "thi", "ith", "tih", "hti", "HIT"]
+    Hit_Choices = ["Hit", "H", "h", "hit", "HIT"]
 
-    Stand_Choices = ["Stand", "S", "s", "stand", "dnats", "STAND"]
+    Stand_Choices = ["Stand", "S", "s", "stand", "STAND"]
     # -----------------------#
 
     # Player & Dealer Deck
@@ -151,7 +151,7 @@ def main():
 
     # Hit or Stand?
 
-    for i in range(1000):
+    for i in range(100000):
         time.sleep(1)
         FirstRoundChoice = input("Would you like to 'Hit' or 'Stand'? ")
         gap()
