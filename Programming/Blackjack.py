@@ -17,7 +17,7 @@ def rules():
     time.sleep(3.5)
     gap()
     print("Your goal is to get your count to 21 or close to it, without going over.")
-    time.sleep(3.5)
+    time.sleep(4)
     gap()
     print("You can 'Hit' to draw a card and 'Stand' to end your turn.")
     time.sleep(3.5)
@@ -57,6 +57,7 @@ if rules_question in rule_choices:
     rules()
 
 else:
+    time.sleep(1.5)
     print("Then lets get started!")
     time.sleep(3)
 
@@ -108,13 +109,11 @@ def main():
         player_card = random.choice(cards)
         Player_Cards.insert(0, player_card)
         cards.remove(player_card)
-        print(Player_Cards)
 
     def getcard_Dealer():
         dealer_card = random.choice(cards)
         Dealer_Cards.insert(0, dealer_card)
         cards.remove(dealer_card)
-        print(Dealer_Cards)
 
     def playAgain():
         import time
@@ -139,6 +138,7 @@ def main():
     # First Hand
 
     Player_Total = sum(Player_Cards)
+    gap()
     print("Your cards are {}".format(Player_Cards))
     gap()
     time.sleep(2)
@@ -226,7 +226,6 @@ def main():
 
     if 17 <= Dealer_Total <= 21:
         time.sleep(1)
-        gap()
         print("Dealer has chosen to stand")
         time.sleep(2)
         gap()
